@@ -1,0 +1,36 @@
+<canvas id="can" width="1000px" height="1000px"></canvas>
+<div>I am a multi-media artist from Portland, Oregon. You can look at: Instagram if you want to see my visual work, Band Camp if you want to hear my music, and YouTube if you want to see my video work.</div>
+<script>
+var canvas = document.getElementById('can');
+var c = canvas.getContext('2d');
+var fb = new Image();
+
+const grad2 = c.createLinearGradient(0,0, 980,0);
+grad2.addColorStop(0, "cyan");
+grad2.addColorStop(1, "magenta");
+	
+const grad = c.createLinearGradient(0,0, 280,0);
+grad.addColorStop(0, "yellow");
+grad.addColorStop(1, "yellow");
+
+c.fillStyle=grad2;
+c.fillRect(20,50,960,100);
+c.fillStyle=grad;
+c.fillRect(20,100,400,50);
+//c.drawImage(start,0,0);
+animate();
+
+function animate() {
+	window.requestAnimationFrame(animate);
+  c.save();
+  c.beginPath();
+ c.moveTo(Math.random()*1000,Math.random()*1000);
+  c.lineTo(Math.random()*1000,Math.random()*1000);
+  c.lineTo(Math.random()*1000,Math.random()*1000);
+  c.lineTo(Math.random()*1000,Math.random()*1000);
+  c.closePath();
+  c.clip();
+  c.drawImage(fb,Math.random()*80-40,Math.random()*50-25);
+  c.restore();
+  fb.src = canvas.toDataURL();
+}</script>
