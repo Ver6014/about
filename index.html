@@ -1,42 +1,59 @@
-<div id="overlayContainer" style="font-size:160%;">I am a multi-media artist from Portland, Oregon. <br> You can look at:<br>Instagram if you want to see my visual work, Band Camp if you want to hear my music, and YouTube if you want to see my video work.
-<br><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <style>
+        body {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: white;
+        }
 
-I make projection art, take photos, experiment with sound, and sometimes build things. I have two cats, one named Joker and the other Dr. Pepper. Most of my work is just me having fun and experimenting. I do not like to pay for software so most of the tools I use are free. 
-Right now, I am working on school mostly, but in my free time, I am having fun with video feedback loops, datamoshing, metasynth, and Bryce 3D. I am also learning how to make VST/Audio Unit plug-ins.
-	
-</div>
-<canvas id="can" width="1000px" height="1000px"></canvas>
-<script>
-var canvas = document.getElementById('can');
-var c = canvas.getContext('2d');
-var fb = new Image();
+        h1 {
+            font-size: 4em;
+            text-shadow: 2px 2px 0 #000;
+        }
 
-const grad2 = c.createLinearGradient(0,0, 980,0);
-grad2.addColorStop(0, "cyan");
-grad2.addColorStop(1, "magenta");
-	
-const grad = c.createLinearGradient(0,0, 280,0);
-grad.addColorStop(0, "yellow");
-grad.addColorStop(1, "yellow");
+        p {
+            font-size: 1.5em;
+            text-shadow: 1px 1px 0 #000;
+        }
 
-c.fillStyle=grad2;
-c.fillRect(20,50,960,100);
-c.fillStyle=grad;
-c.fillRect(20,100,400,50);
-//c.drawImage(start,0,0);
-animate();
+        .container {
+            margin-top: 50px;
+        }
 
-function animate() {
-	window.requestAnimationFrame(animate);
-  c.save();
-  c.beginPath();
- c.moveTo(Math.random()*1000,Math.random()*1000);
-  c.lineTo(Math.random()*1000,Math.random()*1000);
-  c.lineTo(Math.random()*1000,Math.random()*1000);
-  c.lineTo(Math.random()*1000,Math.random()*1000);
-  c.closePath();
-  c.clip();
-  c.drawImage(fb,Math.random()*80-40,Math.random()*50-25);
-  c.restore();
-  fb.src = canvas.toDataURL();
-}</script>
+        .title {
+            background: #000;
+            color: #fff;
+            padding: 5px;
+            padding-left: 10px;
+            overflow: hidden;
+            margin: 0;
+            font-weight: bolder;
+        }
+
+        footer {
+            width: 100%;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <p class="title">About Me</p>
+    <div class="container">
+        <p>
+            I make projection art, take photos, experiment with sound, and sometimes build things. I have two cats, one named Joker and the other Dr. Pepper. Most of my work is just me having fun and experimenting. I do not like to pay for software so most of the tools I use are free.
+            Right now, I am working on school mostly, but in my free time, I am having fun with video feedback loops, datamoshing, metasynth, and Bryce 3D. I am also learning how to make VST/Audio Unit plug-ins.
+        </p>
+        <br><br>
+        <img src="me.png" alt="PHOTO OF ME" class="vaporwave-image" style="width: 1000px; height: auto;">
+    </div>
+    <footer>
+        <p class="title">VVE - The Llemon - Vermillionillion - Victor Schulhoff</p>
+    </footer>
+</body>
+</html>
